@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Alumni Network System &ndash; Final Viva Presentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="presentation-container">
+
+    <!-- Top Institutional Academic Header -->
+    <header class="pres-top-bar">
+      <div class="inst-meta">
+        <span class="inst-logo-badge">SIST</span>
+        <span class="inst-title-text">Sathyabama Institute of Science and Technology &bull; Dept. of Computer Science &amp; Engineering (AI)</span>
+      </div>
+      <div class="pres-badge-eval">
+        <span class="academic-chip">Final Engineering Project Defense</span>
+        <span class="academic-chip" style="background:#fef3c7; color:#92400e; border-color:#fde68a;">Academic Year 2025&ndash;2026</span>
+      </div>
+    </header>
+
+    <!-- Main Viewport for 20 Slides -->
+    <main class="slides-viewport" id="slidesViewport">
+
+      <!-- ====================================================================
+           SLIDE 1: TITLE SLIDE
+           ==================================================================== -->
+      <section class="slide active" id="slide-1" data-slide="1">
+        <div class="cover-container">
+          <div class="cover-header-crest">
+            <div class="crest-text">
+              <h3>SATHYABAMA INSTITUTE OF SCIENCE AND TECHNOLOGY</h3>
+              <p>DEEMED TO BE UNIVERSITY &bull; CATEGORY 'A' BY MHRD &bull; ACCREDITED WITH 'A++' GRADE BY NAAC</p>
+            </div>
+            <div>
+              <span class="badge-tag" style="font-size:0.8rem; font-weight:700; color:var(--color-primary);">B.E. PROJECT DEFENSE</span>
+            </div>
+          </div>
+
+          <div class="cover-main-hero">
+            <span class="viva-tag">Final Major Project Presentation &bull; Full-Stack Web Development</span>
+            <h1>Smart Alumni Network System</h1>
+            <p class="hero-sub">An Institution-Grade Web Platform for Verified Alumni Engagement, Structured Mentorship, Job Referrals, and Department Endowment Tracking</p>
+          </div>
+
+          <div class="cover-details-grid">
+            <div class="meta-box">
+              <div class="meta-box-title">Team Identification &amp; Presenters</div>
+              <div style="margin-bottom:0.35rem;">
+                <span class="badge-tag" style="background:#eff6ff; color:#1e3a8a; border-color:#bfdbfe; font-weight:800; font-size:0.8rem;">Team ID: SIST-CSEAI-2026-T12</span>
+              </div>
+              <ul class="student-roster">
+                <li>
+                  <span class="meta-box-val">Kiruthi Imalini</span>
+                  <span class="badge-tag">Reg: 44731144 (Lead)</span>
+                </li>
+                <li>
+                  <span class="meta-box-val">Yamba Murthy</span>
+                  <span class="badge-tag">Reg: 44731137 (Partner)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="meta-box">
+              <div class="meta-box-title">Academic Details</div>
+              <div class="meta-box-val">B.E. CSE (Artificial Intelligence)</div>
+              <div style="font-size:0.8rem; color:var(--text-subtle); margin-top:0.25rem;">
+                Batch: 2023 &ndash; 2027 &bull; Section A1<br>
+                Semester VI / Final Project Viva
+              </div>
+            </div>
+
+            <div class="meta-box">
+              <div class="meta-box-title">Faculty Project Coordination</div>
+              <div class="meta-box-val">Mrs. Shiela David</div>
+              <div style="font-size:0.8rem; color:var(--text-subtle); margin-top:0.25rem;">
+                Faculty Project Coordinator<br>
+                Department of CSE (AI), SIST
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 2: INTRODUCTION & DOMAIN BACKGROUND
+           ==================================================================== -->
+      <section class="slide" id="slide-2" data-slide="2">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Introduction &amp; Domain Background</h2>
+            <div class="slide-subtitle">The Strategic Role of Institutional Alumni Networks in Modern Higher Engineering Education</div>
+          </div>
+          <span class="slide-section-tag">Domain Overview</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-3">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>What is an Alumni Network?</h3>
+                <span class="card-icon">&bull;</span>
+              </div>
+              <div class="card-content">
+                <p>An institutional community infrastructure bridging a university's active students, graduated alumni, and academic departments into an enduring symbiotic ecosystem.</p>
+                <ul>
+                  <li><strong>Human Capital:</strong> Senior graduates working in global tech giants mentor emerging student talent.</li>
+                  <li><strong>Institutional Giving:</strong> Alumni contribute directly to academic laboratories, GPU compute, and scholarships.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Student Career Acceleration</h3>
+                <span class="card-icon">&bull;</span>
+              </div>
+              <div class="card-content">
+                <p>Alumni engagement directly impacts college placement outcomes and industry-readiness:</p>
+                <ul>
+                  <li><strong>1-on-1 Mentorship:</strong> Domain advice for AI/ML, distributed systems, and product engineering.</li>
+                  <li><strong>Verified Job Referrals:</strong> Direct internal referral pipelines that bypass crowded third-party job boards.</li>
+                  <li><strong>Curriculum Insights:</strong> Real-world feedback aligning academic syllabi with market needs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Academic Domain Demands</h3>
+                <span class="card-icon">&bull;</span>
+              </div>
+              <div class="card-content">
+                <p>Higher education regulatory frameworks (e.g., <strong>NAAC &amp; NBA accreditation</strong>) mandate structured alumni relations:</p>
+                <ul>
+                  <li><strong>Data Accuracy:</strong> Official records must verify genuine alumni credentials.</li>
+                  <li><strong>Measurable Engagement:</strong> Audit trails of mentorship sessions and departmental endowment funds.</li>
+                  <li><strong>Centralization:</strong> Transitioning from ad-hoc social groups to verified portals.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-callout">
+            <strong>Key Insight:</strong> An engineering college's strength is defined by the vitality of its alumni network. A verified, interactive digital platform converts informal relationships into measurable academic and career success.
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 3: PROBLEM STATEMENT & REAL-WORLD INEFFICIENCIES
+           ==================================================================== -->
+      <section class="slide" id="slide-3" data-slide="3">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Problem Statement &amp; Real-World Inefficiencies</h2>
+            <div class="slide-subtitle">Critical Breakdown of Existing Alumni Management and Student Engagement Practices</div>
+          </div>
+          <span class="slide-section-tag">Problem Analysis</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-2">
+            <div class="academic-card danger-border">
+              <div class="card-header">
+                <h3 style="color:var(--color-danger);">1. Data Decay &amp; Identity Impersonation</h3>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Rapid Contact Rot:</strong> Static graduation records stored in spreadsheets become obsolete within 12 months as alumni switch employers and cities.</li>
+                  <li><strong>Unverified Registrations:</strong> Open public portals have zero institutional verification, allowing unauthorized users or impostors to claim fake alumni credentials.</li>
+                  <li><strong>No Institutional Verification:</strong> No linkage between registration forms and official college graduation records.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card danger-border">
+              <div class="card-header">
+                <h3 style="color:var(--color-danger);">2. Fragmented &amp; Unresponsive Communication</h3>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Cold Messaging Friction:</strong> Students send cold InMails on LinkedIn or informal messages on social media with sub-5% response rates.</li>
+                  <li><strong>Scattered Channels:</strong> Conversations spread across disparate WhatsApp, Telegram, and personal email threads with zero central visibility.</li>
+                  <li><strong>Absence of Scheduling:</strong> No mutual agreement on date, time, or agenda leads to missed meetings and wasted time.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card danger-border">
+              <div class="card-header">
+                <h3 style="color:var(--color-danger);">3. Opaque Job Referrals</h3>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Lost Referral Opportunities:</strong> Alumni willing to refer students to top tech companies (TCS, Amazon, Microsoft) lack a dedicated departmental bulletin board.</li>
+                  <li><strong>Informal Job Sharing:</strong> Opportunities posted in chat groups quickly get buried under casual chatter.</li>
+                  <li><strong>No Access Control:</strong> Inability to verify whether applicants meet department prerequisites.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card danger-border">
+              <div class="card-header">
+                <h3 style="color:var(--color-danger);">4. Untracked Department Endowment Pledges</h3>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Opaque Department Initiatives:</strong> Alumni are unaware of departmental infrastructure needs (such as AI GPU clusters and student scholarship funds).</li>
+                  <li><strong>Lack of Real-Time Progress:</strong> No transparent tracking of funding targets versus actual contributions.</li>
+                  <li><strong>No Institutional Audit Trail:</strong> Accreditation bodies (NAAC/NBA) require verifiable records of alumni financial support.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 4: EXISTING SYSTEM & BOTTLENECKS
+           ==================================================================== -->
+      <section class="slide" id="slide-4" data-slide="4">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Existing System &amp; Operational Bottlenecks</h2>
+            <div class="slide-subtitle">Comparative Study: Why Current Conventional Approaches Fail at Scale</div>
+          </div>
+          <span class="slide-section-tag">System Comparison</span>
+        </div>
+        <div class="slide-body">
+          <div class="arch-diagram-row" style="height:auto; min-height:180px;">
+            <div class="arch-tier-box danger-border" style="flex:1;">
+              <div class="arch-tier-header">
+                <h4 style="color:var(--color-danger);">Conventional Existing Workflow</h4>
+                <span class="badge-tag" style="color:var(--color-danger);">Fragmented</span>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.5;">
+                &bull; Department circulates static <strong>Google Sheets / Excel files</strong>.<br>
+                &bull; Alumni information maintained manually by staff without self-service editing.<br>
+                &bull; Students send cold emails or search LinkedIn without knowing mentor availability.<br>
+                &bull; Endowment funding requested via ad-hoc circulars or alumni association annual meets.
+              </div>
+            </div>
+
+            <div class="arch-connector">
+              <div class="connector-arrow">&rarr;</div>
+              <span class="connector-label" style="color:var(--color-danger); border-color:#fca5a5;">Causes</span>
+            </div>
+
+            <div class="arch-tier-box danger-border" style="flex:1;">
+              <div class="arch-tier-header">
+                <h4 style="color:var(--color-danger);">Systemic Bottlenecks</h4>
+                <span class="badge-tag" style="color:var(--color-danger);">Inefficient</span>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.5;">
+                &bull; <strong>Data Redundancy:</strong> Multiple conflicting spreadsheet versions exist.<br>
+                &bull; <strong>Zero RBAC:</strong> No role differentiation between students, alumni, and admins.<br>
+                &bull; <strong>Lack of Accountability:</strong> No record of mentorship requests, acceptances, or rejections.<br>
+                &bull; <strong>Security Risk:</strong> Private student &amp; alumni contact numbers exposed in unprotected files.
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-table-wrapper" style="height:auto; max-height:180px;">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th>Evaluation Parameter</th>
+                  <th>Existing Manual Approach</th>
+                  <th>Smart Alumni Network System</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Identity Verification</strong></td>
+                  <td>None (Self-declared claims)</td>
+                  <td>Strict validation against institutional graduation records</td>
+                  <td><span class="badge-pass">100% Verified</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Mentorship Booking</strong></td>
+                  <td>Manual emails / Unanswered DMs</td>
+                  <td>Structured booking: topic, date, slot, accept/reject notes</td>
+                  <td><span class="badge-pass">Transparent</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Job Referrals</strong></td>
+                  <td>Scattered across chat groups</td>
+                  <td>Role-protected bulletin board with instant application links</td>
+                  <td><span class="badge-pass">Centralized</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Endowment Tracking</strong></td>
+                  <td>Offline, paper receipts, opaque</td>
+                  <td>Live funding progress meters and atomic pledge audit log</td>
+                  <td><span class="badge-pass">ACID Compliant</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 5: PROPOSED SYSTEM
+           ==================================================================== -->
+      <section class="slide" id="slide-5" data-slide="5">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Proposed System &ndash; Smart Alumni Network System</h2>
+            <div class="slide-subtitle">A Unified, Zero-Framework 3-Tier Enterprise Web Platform</div>
+          </div>
+          <span class="slide-section-tag">Proposed Solution</span>
+        </div>
+        <div class="slide-body">
+          <div class="arch-diagram-row" style="min-height:220px;">
+            <div class="arch-tier-box tier-active">
+              <div class="arch-tier-header">
+                <h4>Tier 1: Client Layer</h4>
+                <span class="port-pill">Browser :8080</span>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.45;">
+                <strong>Modern Academic SPA</strong>
+                <ul style="margin-top:0.4rem; padding-left:1.1rem;">
+                  <li>Semantic HTML5 Document Structure</li>
+                  <li>Pure Vanilla CSS3 Design System</li>
+                  <li>Vanilla ES6+ Asynchronous JavaScript</li>
+                  <li>Zero heavy frontend frameworks</li>
+                  <li>Live DOM updates via Fetch API</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="arch-connector">
+              <span class="connector-label">HTTP / REST</span>
+              <div class="connector-arrow">&harr;</div>
+              <span class="connector-label">JSON Payloads</span>
+            </div>
+
+            <div class="arch-tier-box tier-active">
+              <div class="arch-tier-header">
+                <h4>Tier 2: Application Layer</h4>
+                <span class="port-pill">Java SE :8080</span>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.45;">
+                <strong>Java SE HttpServer Engine</strong>
+                <ul style="margin-top:0.4rem; padding-left:1.1rem;">
+                  <li>4-Tier MVC Architecture</li>
+                  <li>Controllers &bull; Services &bull; DAOs &bull; Models</li>
+                  <li>Custom Zero-Dependency JSON Parser</li>
+                  <li>Salted SHA-256 Cryptographic Hashing</li>
+                  <li>Multi-threaded Request Dispatcher</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="arch-connector">
+              <span class="connector-label">JDBC Connection</span>
+              <div class="connector-arrow">&harr;</div>
+              <span class="connector-label">SQL / 3NF</span>
+            </div>
+
+            <div class="arch-tier-box tier-active">
+              <div class="arch-tier-header">
+                <h4>Tier 3: Data Tier</h4>
+                <span class="port-pill">MySQL 8.0 :3306</span>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.45;">
+                <strong>Relational Storage (3NF)</strong>
+                <ul style="margin-top:0.4rem; padding-left:1.1rem;">
+                  <li>10 Normalized Relational Tables</li>
+                  <li>Referential Integrity &amp; Cascade Deletes</li>
+                  <li>PreparedStatement parameterized queries</li>
+                  <li>Institutional Verification Registry</li>
+                  <li>ACID-compliant financial pledges</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-callout">
+            <strong>Key Innovation:</strong> Eliminates framework bloat. Operates natively with standard Java SE and pure Vanilla Web standards, ensuring lightning-fast execution, zero security vulnerabilities from third-party libraries, and direct institutional ownership.
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 6: PROJECT OBJECTIVES / SMART GOALS
+           ==================================================================== -->
+      <section class="slide" id="slide-6" data-slide="6">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Project Objectives &amp; SMART Goals</h2>
+            <div class="slide-subtitle">Clear, Measurable Engineering Targets for System Implementation and Evaluation</div>
+          </div>
+          <span class="slide-section-tag">Engineering Goals</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-3">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Specific (S)</h3>
+                <span class="badge-tag">Verification</span>
+              </div>
+              <div class="card-content">
+                <p><strong>100% Verified Alumni Registration:</strong></p>
+                <p>Validate incoming alumni registrations against official college graduation records (register number, department, and batch) before granting alumni access.</p>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Measurable (M)</h3>
+                <span class="badge-tag">Performance</span>
+              </div>
+              <div class="card-content">
+                <p><strong>High-Performance Execution:</strong></p>
+                <p>Achieve sub-100ms API response latency on local Java SE HttpServer; execute parameterized multi-criteria directory filtering in under 50ms.</p>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Achievable (A)</h3>
+                <span class="badge-tag">Simplicity</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Zero-Framework Architecture:</strong></p>
+                <p>Implement a full-stack system using only Java SE, JDBC, MySQL 8.0, HTML5, CSS3, and ES6+ JS without third-party frameworks or build tools.</p>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Relevant (R)</h3>
+                <span class="badge-tag">Domain Impact</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Structured Mentorship &amp; Jobs:</strong></p>
+                <p>Enable students to book 1-on-1 career sessions with confirmed agenda and provide verified alumni with a board to publish internal job referrals.</p>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Time-Bound (T)</h3>
+                <span class="badge-tag">Lifecycle</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Instant Notification &amp; Audit:</strong></p>
+                <p>Deliver in-app notification dispatch within 1 cycle and provide immediate atomic database updates for departmental endowment pledges.</p>
+              </div>
+            </div>
+
+            <div class="academic-card success-border">
+              <div class="card-header">
+                <h3 style="color:var(--color-success);">Evaluation Result</h3>
+                <span class="badge-pass">18 / 18 PASS</span>
+              </div>
+              <div class="card-content">
+                <p><strong>100% Criteria Fulfilled:</strong></p>
+                <p>All functional user stories and acceptance criteria systematically verified across student, alumni, and administrator user roles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 7: KEY FUNCTIONAL FEATURES IMPLEMENTED
+           ==================================================================== -->
+      <section class="slide" id="slide-7" data-slide="7">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Key Functional Features Implemented</h2>
+            <div class="slide-subtitle">Actual Implemented Feature Capabilities Verified in the System Codebase</div>
+          </div>
+          <span class="slide-section-tag">Implemented Features</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-4">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>FR-01: Alumni Verification</h3>
+              </div>
+              <div class="card-content">
+                Cross-references prospective alumni against <code>verified_graduates</code>. Rejects unverified roll numbers with HTTP 400.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>FR-02: Alumni Directory</h3>
+              </div>
+              <div class="card-content">
+                Dynamic search and multi-filtering by company (TCS, Amazon, Zoho), batch year, department, and mentorship availability.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>FR-03: Mentorship Hub</h3>
+              </div>
+              <div class="card-content">
+                Students request 1-on-1 sessions with topic, date, and time slot. Alumni accept/reject with meeting links and feedback notes.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>FR-04: Job Referrals</h3>
+              </div>
+              <div class="card-content">
+                Verified alumni publish, edit, and delete job postings. Students search openings and access direct application URLs.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>FR-05: Endowment Tracker</h3>
+              </div>
+              <div class="card-content">
+                Showcases department campaigns (AI Lab, Scholarships) with live target progress meters and atomic financial pledge commits.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>FR-06: Authentication</h3>
+              </div>
+              <div class="card-content">
+                Role-based access control (Student, Alumni, Admin) with salted SHA-256 password hashing and session state tracking.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>FR-07: Profile Management</h3>
+              </div>
+              <div class="card-content">
+                Alumni update designation, employer, phone, LinkedIn, and mentor availability toggle in real time.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>FR-08: In-App Alerts</h3>
+              </div>
+              <div class="card-content">
+                Dispatches alerts for mentorship status changes, new job referral posts, and endowment pledge acknowledgments.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 8: TECHNOLOGY STACK
+           ==================================================================== -->
+      <section class="slide" id="slide-8" data-slide="8">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Technology Stack &amp; Zero-Framework Architecture</h2>
+            <div class="slide-subtitle">Lightweight, Dependency-Free Stack Built Exclusively on Core Standards</div>
+          </div>
+          <span class="slide-section-tag">Tech Stack</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-3">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Frontend Layer</h3>
+                <span class="badge-tag">Client</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>HTML5 Semantic Elements:</strong> Accessible document structure (<code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;dialog&gt;</code>).</li>
+                  <li><strong>CSS3 (Pure Vanilla):</strong> Custom academic design system, CSS variables, Grid, Flexbox, responsive layouts.</li>
+                  <li><strong>Vanilla JavaScript (ES6+):</strong> Asynchronous <code>fetch()</code> API, dynamic SPA routing, modal controller.</li>
+                  <li><strong>Zero Libraries:</strong> No React, Bootstrap, Tailwind, or jQuery.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Backend Layer</h3>
+                <span class="badge-tag">Java SE</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Java SE (JDK 17/21/26):</strong> Core Java platform standard edition.</li>
+                  <li><strong>Java HttpServer:</strong> Built-in <code>com.sun.net.httpserver.HttpServer</code> with 16-thread pool.</li>
+                  <li><strong>JsonUtil.java:</strong> Custom zero-dependency recursive JSON parser and serializer.</li>
+                  <li><strong>PasswordUtil.java:</strong> Cryptographic salt generation &amp; SHA-256 hashing.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Database Layer</h3>
+                <span class="badge-tag">MySQL 8.0</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>MySQL Server 8.0:</strong> Relational database engine listening on port 3306.</li>
+                  <li><strong>JDBC (PreparedStatement):</strong> Pure Java Database Connectivity via <code>mysql-connector-j.jar</code>.</li>
+                  <li><strong>3NF Normalization:</strong> 10 relational tables eliminating redundancy.</li>
+                  <li><strong>ACID Guarantees:</strong> Explicit transaction rollbacks on failures.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-pipeline" style="margin-top:0.25rem;">
+            <div class="step-card" style="text-align:center;">
+              <div class="step-title" style="color:var(--color-primary);">HTML5 / CSS3 / ES6+</div>
+              <div class="step-desc">Client Browser (SPA)</div>
+            </div>
+            <div class="arch-connector"><span class="connector-arrow">&rarr;</span><span class="connector-label">HTTP / JSON</span></div>
+            <div class="step-card" style="text-align:center;">
+              <div class="step-title" style="color:var(--color-primary);">Java HttpServer (:8080)</div>
+              <div class="step-desc">Controllers &bull; Services &bull; DAOs</div>
+            </div>
+            <div class="arch-connector"><span class="connector-arrow">&rarr;</span><span class="connector-label">JDBC / SQL</span></div>
+            <div class="step-card" style="text-align:center;">
+              <div class="step-title" style="color:var(--color-primary);">MySQL 8.0 (:3306)</div>
+              <div class="step-desc">3NF Relational Database</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 9: SYSTEM ARCHITECTURE & MULTI-PORT DATA FLOW
+           ==================================================================== -->
+      <section class="slide" id="slide-9" data-slide="9">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>System Architecture &amp; Multi-Port Data Flow</h2>
+            <div class="slide-subtitle">Clear Separation of Concerns and Port Communications Across the 3 Tiers</div>
+          </div>
+          <span class="slide-section-tag">Architecture</span>
+        </div>
+        <div class="slide-body">
+          <div class="arch-diagram-row" style="min-height:120px; gap:0.5rem;">
+            <div class="arch-tier-box" style="padding:0.75rem;">
+              <div class="arch-tier-header" style="margin-bottom:0.25rem;">
+                <h4 style="font-size:0.9rem;">Browser</h4>
+                <span class="port-pill" style="font-size:0.68rem;">User Client</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.35;">
+                Client interactions &bull; DOM event triggers
+              </div>
+            </div>
+
+            <div class="arch-connector" style="gap:0.15rem;">
+              <span class="connector-label" style="font-size:0.65rem;">HTTP</span>
+              <div class="connector-arrow" style="font-size:1rem;">&rarr;</div>
+            </div>
+
+            <div class="arch-tier-box tier-active" style="padding:0.75rem;">
+              <div class="arch-tier-header" style="margin-bottom:0.25rem;">
+                <h4 style="font-size:0.9rem;">Frontend</h4>
+                <span class="port-pill" style="font-size:0.68rem;">Port :5500</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.35;">
+                HTML5 / CSS3 / Vanilla JS SPA &bull; UI Views
+              </div>
+            </div>
+
+            <div class="arch-connector" style="gap:0.15rem;">
+              <span class="connector-label" style="font-size:0.65rem;">fetch() JSON</span>
+              <div class="connector-arrow" style="font-size:1rem;">&rarr;</div>
+            </div>
+
+            <div class="arch-tier-box tier-active" style="padding:0.75rem;">
+              <div class="arch-tier-header" style="margin-bottom:0.25rem;">
+                <h4 style="font-size:0.9rem;">Java Backend</h4>
+                <span class="port-pill" style="font-size:0.68rem;">Port :8080</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.35;">
+                Java SE HttpServer &bull; Controllers &amp; Services
+              </div>
+            </div>
+
+            <div class="arch-connector" style="gap:0.15rem;">
+              <span class="connector-label" style="font-size:0.65rem;">JDBC SQL</span>
+              <div class="connector-arrow" style="font-size:1rem;">&rarr;</div>
+            </div>
+
+            <div class="arch-tier-box" style="padding:0.75rem;">
+              <div class="arch-tier-header" style="margin-bottom:0.25rem;">
+                <h4 style="font-size:0.9rem;">MySQL DB</h4>
+                <span class="port-pill" style="font-size:0.68rem;">Port :3306</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.35;">
+                MySQL 8.0 &bull; 3NF Relational Tables
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-table-wrapper" style="max-height:220px;">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width:22%;">Architecture Dimension</th>
+                  <th style="width:20%;">Component / Port</th>
+                  <th>Core Engineering Responsibility &amp; Communication Protocol</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Frontend Responsibility</strong></td>
+                  <td><code>frontend/</code> &bull; <code>:5500 / :8080</code></td>
+                  <td>Renders semantic HTML5 UI, manages SPA view transitions via Vanilla CSS3, validates user inputs client-side, and captures DOM form submissions without page reloads.</td>
+                </tr>
+                <tr>
+                  <td><strong>Backend Responsibility</strong></td>
+                  <td><code>Java SE HttpServer</code> &bull; <code>:8080</code></td>
+                  <td>Listens on port 8080, dispatches REST routes via multi-threaded executor, enforces role-based access control (RBAC), parses zero-dependency JSON, and validates graduation records.</td>
+                </tr>
+                <tr>
+                  <td><strong>Database Responsibility</strong></td>
+                  <td><code>MySQL 8.0</code> &bull; <code>:3306</code></td>
+                  <td>Provides persistent 3NF relational storage across 10 tables, enforces foreign key referential integrity (CASCADE/RESTRICT), and guarantees ACID transactional atomicity on financial pledges.</td>
+                </tr>
+                <tr>
+                  <td><strong>HTTP Communication</strong></td>
+                  <td><code>Asynchronous fetch()</code></td>
+                  <td>Browser sends non-blocking REST requests (GET, POST, PUT, DELETE) to <code>http://localhost:8080/api/*</code> with CORS headers (<code>Access-Control-Allow-Origin: *</code>) and JSON bodies.</td>
+                </tr>
+                <tr>
+                  <td><strong>JDBC Communication</strong></td>
+                  <td><code>PreparedStatement (:3306)</code></td>
+                  <td>Java DAOs establish TCP connections to MySQL port 3306 via <code>mysql-connector-j.jar</code>, executing parameterized SQL queries with placeholder <code>?</code> bindings to prevent SQL injection.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 10: APPLICATION MODULES
+           ==================================================================== -->
+      <section class="slide" id="slide-10" data-slide="10">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Application Modules</h2>
+            <div class="slide-subtitle">Modular Structure and Functional Partitioning Across the Platform</div>
+          </div>
+          <span class="slide-section-tag">System Modules</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-4">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>1. Authentication</h3>
+                <span class="badge-tag">Auth</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>AuthController</code>, <code>AuthService</code>, <code>UserDAO</code>.<br>
+                Manages registration, secure login, role detection, and salted SHA-256 password hashing.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>2. Alumni Directory</h3>
+                <span class="badge-tag">Directory</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>AlumniController</code>, <code>AlumniService</code>, <code>AlumniDAO</code>.<br>
+                Multi-filter alumni search across company, batch, and mentorship availability.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>3. Verification Vault</h3>
+                <span class="badge-tag">Security</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>VerifiedGraduateDAO</code>.<br>
+                Validates roll numbers against official graduate records before granting alumni privileges.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>4. Mentorship Hub</h3>
+                <span class="badge-tag">Mentorship</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>MentorshipController</code>, <code>MentorshipService</code>, <code>MentorshipDAO</code>.<br>
+                Manages booking lifecycle: Pending &rarr; Accepted &rarr; Rejected &rarr; Completed.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>5. Job Referrals</h3>
+                <span class="badge-tag">Jobs</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>JobController</code>, <code>JobService</code>, <code>JobDAO</code>.<br>
+                Enforces RBAC: only verified alumni can post, edit, or delete jobs; students view &amp; apply.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>6. Endowment Tracker</h3>
+                <span class="badge-tag">Funding</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>EndowmentController</code>, <code>EndowmentService</code>, <code>EndowmentDAO</code>.<br>
+                Tracks infrastructure projects and executes atomic financial pledge commits.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>7. Notifications</h3>
+                <span class="badge-tag">Alerts</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>NotificationController</code>, <code>NotificationService</code>, <code>NotificationDAO</code>.<br>
+                Dispatches and marks in-app notifications as read across system actions.
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>8. Audit &amp; Metrics</h3>
+                <span class="badge-tag">Admin</span>
+              </div>
+              <div class="card-content">
+                <strong>Classes:</strong> <code>StatsController</code>, <code>StatsService</code>.<br>
+                Aggregates live counts of students, alumni, jobs, mentorships, and total endowment raised.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 11: DATABASE DESIGN (3NF SCHEMA)
+           ==================================================================== -->
+      <section class="slide" id="slide-11" data-slide="11">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Database Design &amp; 3NF Schema Architecture</h2>
+            <div class="slide-subtitle">Normalized Relational Model Ensuring Data Integrity and Zero Redundancy</div>
+          </div>
+          <span class="slide-section-tag">Database Design</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-2" style="height:100%;">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Normalized Relational Schema (10 Tables)</h3>
+                <span class="badge-tag">MySQL 8.0</span>
+              </div>
+              <div class="card-content">
+                <ul style="line-height:1.45;">
+                  <li><code>departments</code>: <code>dept_id</code> (PK), <code>dept_code</code> (UQ), <code>dept_name</code></li>
+                  <li><code>verified_graduates</code>: <code>grad_id</code> (PK), <code>register_no</code> (UQ), <code>dept_id</code> (FK), <code>batch_year</code></li>
+                  <li><code>users</code>: <code>user_id</code> (PK), <code>email</code> (UQ), <code>password_hash</code>, <code>salt</code>, <code>role</code></li>
+                  <li><code>students</code>: <code>student_id</code> (PK), <code>user_id</code> (FK), <code>register_no</code> (UQ), <code>dept_id</code> (FK)</li>
+                  <li><code>alumni</code>: <code>alumni_id</code> (PK), <code>user_id</code> (FK), <code>register_no</code> (UQ), <code>company</code>, <code>designation</code></li>
+                  <li><code>mentorship_sessions</code>: <code>session_id</code> (PK), <code>student_id</code> (FK), <code>alumni_id</code> (FK), <code>topic</code>, <code>status</code></li>
+                  <li><code>jobs</code>: <code>job_id</code> (PK), <code>alumni_id</code> (FK), <code>job_title</code>, <code>company</code>, <code>salary_range</code></li>
+                  <li><code>endowment_projects</code>: <code>project_id</code> (PK), <code>dept_id</code> (FK), <code>target_amount</code>, <code>current_amount</code></li>
+                  <li><code>pledges</code>: <code>pledge_id</code> (PK), <code>project_id</code> (FK), <code>user_id</code> (FK), <code>pledge_amount</code></li>
+                  <li><code>notifications</code>: <code>notification_id</code> (PK), <code>user_id</code> (FK), <code>title</code>, <code>message</code>, <code>is_read</code></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>3NF Normalization Principles Applied</h3>
+                <span class="badge-tag">Integrity</span>
+              </div>
+              <div class="card-content">
+                <p><strong>First Normal Form (1NF):</strong> All table columns contain atomic, indivisible values. No multi-valued repeating groups.</p>
+                <p style="margin-top:0.35rem;"><strong>Second Normal Form (2NF):</strong> Every non-key attribute is fully functionally dependent on the entire primary key (surrogate auto-increment keys).</p>
+                <p style="margin-top:0.35rem;"><strong>Third Normal Form (3NF):</strong> No transitive dependencies. Department names are isolated in <code>departments</code> and linked via <code>dept_id</code> foreign keys rather than redundantly duplicated.</p>
+                <div class="academic-callout" style="margin-top:0.6rem;">
+                  <strong>Referential Actions:</strong> <code>ON DELETE CASCADE</code> for dependent profiles, jobs, sessions, and notifications. <code>ON DELETE RESTRICT</code> for academic departments.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 12: DATA FLOW DIAGRAMS (DFD)
+           ==================================================================== -->
+      <section class="slide" id="slide-12" data-slide="12">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Data Flow Diagrams (DFD Level 0 &amp; Level 1)</h2>
+            <div class="slide-subtitle">Logical Flow of Information Between Entities, Processes, and Data Stores</div>
+          </div>
+          <span class="slide-section-tag">Data Flow</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-2">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>DFD Level 0: Context Diagram</h3>
+                <span class="badge-tag">High-Level</span>
+              </div>
+              <div class="card-content">
+                <div style="background:var(--bg-card-subtle); padding:0.75rem; border-radius:var(--radius-sm); font-size:0.75rem; border:1px solid var(--border-medium); line-height:1.4;">
+                  <strong>External Entities &rarr; Central System &rarr; Data Stores</strong>
+                  <ul style="margin-top:0.35rem; padding-left:1rem;">
+                    <li><strong>Student Entity:</strong> Sends credentials, mentorship requests, search queries &bull; Receives directory cards, session updates, job listings.</li>
+                    <li><strong>Alumni Entity:</strong> Sends verification roll no, job referrals, session acceptance notes, financial pledges &bull; Receives student requests, pledge receipts.</li>
+                    <li><strong>Admin Entity:</strong> Audits institutional metrics &bull; Configures department campaigns &bull; Receives aggregated NAAC analytics.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>DFD Level 1: Functional Decomposition</h3>
+                <span class="badge-tag">Processes</span>
+              </div>
+              <div class="card-content">
+                <div style="background:var(--bg-card-subtle); padding:0.75rem; border-radius:var(--radius-sm); font-size:0.75rem; border:1px solid var(--border-medium); line-height:1.4;">
+                  <strong>6 Core Data Transformation Processes:</strong>
+                  <ul style="margin-top:0.35rem; padding-left:1rem;">
+                    <li><strong>[1.0 Auth &amp; Verification]:</strong> Validates roll no against <code>verified_graduates</code> &rarr; Writes to <code>users</code>.</li>
+                    <li><strong>[2.0 Directory Engine]:</strong> Queries <code>alumni</code> &amp; <code>departments</code> with filters.</li>
+                    <li><strong>[3.0 Mentorship Hub]:</strong> Inserts to <code>mentorship_sessions</code> &rarr; Dispatches alert to <code>notifications</code>.</li>
+                    <li><strong>[4.0 Job Referral Bulletin]:</strong> Writes and queries <code>jobs</code> with author checks.</li>
+                    <li><strong>[5.0 Endowment Aggregator]:</strong> Updates <code>pledges</code> &amp; increments <code>endowment_projects</code>.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-pipeline">
+            <div class="step-card"><div class="step-number">1</div><div class="step-title">User Input</div><div class="step-desc">HTTP JSON Request</div></div>
+            <div class="step-card"><div class="step-number">2</div><div class="step-title">HttpServer</div><div class="step-desc">Port 8080 Dispatcher</div></div>
+            <div class="step-card"><div class="step-number">3</div><div class="step-title">Controller &amp; Service</div><div class="step-desc">Validation &amp; Business Rules</div></div>
+            <div class="step-card"><div class="step-number">4</div><div class="step-title">DAO PreparedStatement</div><div class="step-desc">SQL Injection Prevention</div></div>
+            <div class="step-card"><div class="step-number">5</div><div class="step-title">MySQL Database</div><div class="step-desc">3NF Persistent Storage</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 13: END-TO-END USER JOURNEY / WORKFLOW
+           ==================================================================== -->
+      <section class="slide" id="slide-13" data-slide="13">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>End-to-End User Journey &amp; Operational Workflows</h2>
+            <div class="slide-subtitle">Step-by-Step Trajectory of Student and Alumni Interactions</div>
+          </div>
+          <span class="slide-section-tag">User Journey</span>
+        </div>
+        <div class="slide-body">
+          <div class="academic-card highlight" style="flex:1;">
+            <div class="card-header">
+              <h3>Student Journey: Career Mentorship &amp; Referral Acquisition</h3>
+              <span class="badge-tag">Kiruthi Imalini (3rd Year CSE AI)</span>
+            </div>
+            <div class="step-pipeline" style="margin-top:0.35rem;">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-title">Portal Login</div>
+                <div class="step-desc">Logs in as Student; dashboard displays quick statistics.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-title">Directory Search</div>
+                <div class="step-desc">Filters directory for TCS, finds Shiela Soundararajan.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-title">Book Mentorship</div>
+                <div class="step-desc">Submits topic "Mock AI Interview" and preferred date/slot.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-title">Confirmation</div>
+                <div class="step-desc">Receives in-app alert when Shiela accepts with meeting notes.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-title">Apply for Job</div>
+                <div class="step-desc">Browses TCS Associate AI Engineer post &amp; applies directly.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-card secondary-border" style="flex:1;">
+            <div class="card-header">
+              <h3>Alumni Journey: Verified Registration &amp; Institutional Giving</h3>
+              <span class="badge-tag">Shiela S. (Senior AI Engineer, TCS)</span>
+            </div>
+            <div class="step-pipeline" style="margin-top:0.35rem;">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-title">Verified Register</div>
+                <div class="step-desc">Enters roll number 44731001; verified against records.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-title">Post Job Referral</div>
+                <div class="step-desc">Publishes internal referral opening with skills and package.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-title">Review Requests</div>
+                <div class="step-desc">Navigates to Mentorship Hub; reviews Kiruthi's booking.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-title">Accept &amp; Share Notes</div>
+                <div class="step-desc">Clicks Accept, inputs Google Meet link and prep instructions.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-title">Pledge Donation</div>
+                <div class="step-desc">Pledges &#8377;50,000 to AI &amp; Robotics Center of Excellence.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 14: FRONTEND INTERFACE & DESIGN SYSTEM
+           ==================================================================== -->
+      <section class="slide" id="slide-14" data-slide="14">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Frontend Interface &amp; Design Architecture</h2>
+            <div class="slide-subtitle">Implementation of Single-Page Application (SPA) Without Heavy Frameworks</div>
+          </div>
+          <span class="slide-section-tag">Frontend UI</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-2">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Frontend Technical Design Principles</h3>
+                <span class="badge-tag">Standards</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Semantic HTML5 Structure:</strong> Dedicated sections for views (<code>#dashboardView</code>, <code>#alumniView</code>, <code>#mentorshipView</code>, <code>#jobsView</code>, <code>#endowmentView</code>, <code>#alertsView</code>).</li>
+                  <li><strong>Responsive CSS3 Design System:</strong> CSS Custom Properties (Tokens), Flexbox layouts, dynamic card grids, and high-contrast typography.</li>
+                  <li><strong>Single-Page Architecture:</strong> Seamless view switching without browser page reloads via class toggling and async <code>fetch()</code> DOM rendering.</li>
+                  <li><strong>Micro-Interactions &amp; Modals:</strong> Native HTML5 modal dialogs with backdrop filters and animated toast alert banners.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="ui-mockup-frame">
+              <div class="ui-mockup-topbar">
+                <span class="ui-circle ui-red"></span>
+                <span class="ui-circle ui-yellow"></span>
+                <span class="ui-circle ui-green"></span>
+                <span class="ui-mockup-url">http://localhost:8080 &bull; Smart Alumni Portal</span>
+              </div>
+              <div class="ui-mockup-content">
+                <div style="background:#ffffff; padding:0.5rem; border-radius:6px; border:1px solid #cbd5e1; margin-bottom:0.5rem; display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:var(--color-primary); font-size:0.82rem;">Smart Alumni Network</strong>
+                  <div style="display:flex; gap:0.4rem;">
+                    <span class="badge-tag" style="background:#dbeafe; color:#1e40af;">Student: Kiruthi Imalini</span>
+                    <span class="badge-pass">Active</span>
+                  </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.4rem; margin-bottom:0.5rem;">
+                  <div class="metric-tile" style="padding:0.4rem;">
+                    <div class="metric-num" style="font-size:1.1rem;">5</div>
+                    <div class="metric-label" style="font-size:0.65rem;">Verified Alumni</div>
+                  </div>
+                  <div class="metric-tile" style="padding:0.4rem;">
+                    <div class="metric-num" style="font-size:1.1rem;">6</div>
+                    <div class="metric-label" style="font-size:0.65rem;">Active Jobs</div>
+                  </div>
+                  <div class="metric-tile" style="padding:0.4rem;">
+                    <div class="metric-num" style="font-size:1.1rem;">&#8377;24.3L</div>
+                    <div class="metric-label" style="font-size:0.65rem;">Pledged Funds</div>
+                  </div>
+                </div>
+
+                <div style="background:#ffffff; padding:0.5rem; border-radius:6px; border:1px solid #cbd5e1; font-size:0.75rem;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
+                    <strong>AI &amp; Autonomous Robotics Lab Fund</strong>
+                    <span style="color:var(--color-primary); font-weight:700;">43% Funded</span>
+                  </div>
+                  <div class="pres-progress-bar-bg" style="width:100%; height:6px;">
+                    <div class="pres-progress-fill" style="width:43%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 15: JAVA BACKEND ENGINE (MVC ARCHITECTURE)
+           ==================================================================== -->
+      <section class="slide" id="slide-15" data-slide="15">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Java Backend Engine &amp; 4-Tier MVC Architecture</h2>
+            <div class="slide-subtitle">Robust, High-Concurrency Request Processing with Zero External Frameworks</div>
+          </div>
+          <span class="slide-section-tag">Java Backend</span>
+        </div>
+        <div class="slide-body">
+          <div class="arch-diagram-row" style="min-height:160px;">
+            <div class="arch-tier-box">
+              <div class="arch-tier-header">
+                <h4>1. Controllers</h4>
+                <span class="badge-tag">src/controller/</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">
+                HTTP handlers implementing <code>HttpHandler</code>. Handles URI parsing, query params, HTTP verbs (GET, POST, PUT, DELETE), and status codes.
+              </div>
+            </div>
+
+            <div class="arch-connector"><span class="connector-arrow">&rarr;</span></div>
+
+            <div class="arch-tier-box tier-active">
+              <div class="arch-tier-header">
+                <h4>2. Services</h4>
+                <span class="badge-tag">src/service/</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">
+                Business rules, verification checks against <code>verified_graduates</code>, role validation (RBAC), and cross-entity notification triggering.
+              </div>
+            </div>
+
+            <div class="arch-connector"><span class="connector-arrow">&rarr;</span></div>
+
+            <div class="arch-tier-box">
+              <div class="arch-tier-header">
+                <h4>3. DAOs &amp; Models</h4>
+                <span class="badge-tag">src/dao/ &bull; model/</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">
+                Data Access Objects executing JDBC <code>PreparedStatement</code> queries. Maps relational tuples directly into strongly typed Java POJOs.
+              </div>
+            </div>
+          </div>
+
+          <div class="card-grid-3">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Main.java Server Engine</h3>
+              </div>
+              <div class="card-content">
+                Initializes <code>HttpServer</code> on port 8080 with a 16-thread fixed executor pool. Handles static asset MIME types (.html, .css, .js).
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Zero-Dependency JsonUtil.java</h3>
+              </div>
+              <div class="card-content">
+                Custom recursive descent JSON parser and serializer written in pure Java SE. Eliminates Jackson / Gson dependencies completely.
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>PasswordUtil.java &amp; Security</h3>
+              </div>
+              <div class="card-content">
+                Generates 16-byte cryptographic salt via <code>SecureRandom</code> and computes salted SHA-256 hashes via <code>MessageDigest</code>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 16: DATABASE CRUD OPERATIONS & SECURITY
+           ==================================================================== -->
+      <section class="slide" id="slide-16" data-slide="16">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Database CRUD Operations &amp; Security Engineering</h2>
+            <div class="slide-subtitle">Parameterized SQL Execution, ACID Transactions, and Security Safeguards</div>
+          </div>
+          <span class="slide-section-tag">Data Access &amp; Security</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-2">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Core CRUD Operations Across Modules</h3>
+                <span class="badge-tag">JDBC</span>
+              </div>
+              <div class="card-content" style="font-family:var(--font-mono); font-size:0.75rem;">
+                <p><strong>CREATE:</strong></p>
+                <div style="background:var(--bg-card-subtle); padding:0.35rem; border-radius:4px; margin-bottom:0.4rem;">
+                  INSERT INTO mentorship_sessions (student_id, alumni_id, topic, message, preferred_date, preferred_time) VALUES (?, ?, ?, ?, ?, ?)
+                </div>
+                <p><strong>READ:</strong></p>
+                <div style="background:var(--bg-card-subtle); padding:0.35rem; border-radius:4px; margin-bottom:0.4rem;">
+                  SELECT a.*, d.dept_name FROM alumni a JOIN departments d ON a.dept_id = d.dept_id WHERE a.company LIKE ? AND a.is_mentor_available = ?
+                </div>
+                <p><strong>UPDATE:</strong></p>
+                <div style="background:var(--bg-card-subtle); padding:0.35rem; border-radius:4px; margin-bottom:0.4rem;">
+                  UPDATE mentorship_sessions SET status = ?, response_notes = ? WHERE session_id = ?
+                </div>
+                <p><strong>DELETE:</strong></p>
+                <div style="background:var(--bg-card-subtle); padding:0.35rem; border-radius:4px;">
+                  DELETE FROM jobs WHERE job_id = ? AND alumni_id = ?
+                </div>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Security &amp; Transaction Engineering</h3>
+                <span class="badge-tag">Safeguards</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>100% SQL Injection Prevention:</strong> Every query across all 9 DAOs binds user inputs via JDBC <code>PreparedStatement</code> placeholders (<code>?</code>). Zero raw SQL concatenation.</li>
+                  <li><strong>ACID Transaction Management:</strong> In <code>EndowmentDAO.java</code>, financial pledges execute under <code>conn.setAutoCommit(false)</code>. The pledge insert and campaign total increment commit atomically; rolls back on error.</li>
+                  <li><strong>Salted Cryptographic Hashing:</strong> Passwords stored as SHA-256 hashes salted with unique random seeds per account.</li>
+                  <li><strong>Strict Server-Side RBAC:</strong> Even if client-side UI buttons are tampered with, Java controllers validate session role headers and reject unauthorized actions with HTTP 403.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 17: ACCEPTANCE CRITERIA & TEST RESULTS
+           ==================================================================== -->
+      <section class="slide" id="slide-17" data-slide="17">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Acceptance Criteria &amp; Verification Test Matrix</h2>
+            <div class="slide-subtitle">Systematic Empirical Validation Across 18 Comprehensive Test Cases (100% PASS)</div>
+          </div>
+          <span class="slide-section-tag">Test Results</span>
+        </div>
+        <div class="slide-body">
+          <div class="academic-table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th>Test ID</th>
+                  <th>Feature Module</th>
+                  <th>Test Input &amp; Action</th>
+                  <th>Expected Verification Result</th>
+                  <th>Actual Result</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>TC-01</strong></td>
+                  <td>Verified Registration</td>
+                  <td>Reg No 44731006 (Karthik Subramanian)</td>
+                  <td>Validates against verified_graduates; creates Alumni account</td>
+                  <td>Account created successfully; status 201</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-02</strong></td>
+                  <td>Verification Rejection</td>
+                  <td>Invalid Reg No 99999999</td>
+                  <td>Rejection with HTTP 400: Record not found in college registry</td>
+                  <td>Registration blocked with error toast</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-03</strong></td>
+                  <td>Student Registration</td>
+                  <td>Sneha Nair, CSE AI, 3rd Year</td>
+                  <td>Creates Student role, hashes password, triggers welcome alert</td>
+                  <td>Student account created in MySQL</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-04</strong></td>
+                  <td>User Authentication</td>
+                  <td>shiela@gmail.com / alumni123</td>
+                  <td>Validates credentials, unlocks alumni controls &amp; +Post Job button</td>
+                  <td>Login successful; navbar updated</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-05</strong></td>
+                  <td>Invalid Password Block</td>
+                  <td>admin@gmail.com / wrongpassword</td>
+                  <td>Rejects authentication with HTTP 401 and error message</td>
+                  <td>HTTP 401; user remained logged out</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-06</strong></td>
+                  <td>Alumni Directory Search</td>
+                  <td>Query: "TCS", Dept: "CSE-AI"</td>
+                  <td>Filters directory to show Shiela Soundararajan (TCS)</td>
+                  <td>Matching card rendered dynamically</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-07</strong></td>
+                  <td>Mentor Availability Filter</td>
+                  <td>Checkbox: "Available Mentors"</td>
+                  <td>Filters out alumni with is_mentor_available = false</td>
+                  <td>Unavailable alumni excluded from grid</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-08</strong></td>
+                  <td>Book Mentorship Session</td>
+                  <td>Topic: "Mock AI Interview"</td>
+                  <td>Creates session in Pending state; notifies alumni mentor</td>
+                  <td>Session saved in MySQL; alert sent</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-09</strong></td>
+                  <td>Mentorship Acceptance</td>
+                  <td>Alumnus accepts with Meet URL</td>
+                  <td>Updates status to Accepted; notifies student with notes</td>
+                  <td>Status updated to Accepted in MySQL</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-11</strong></td>
+                  <td>Job Referral Posting</td>
+                  <td>AI Research Referral @ TCS</td>
+                  <td>Persists job record linked to alumni author ID</td>
+                  <td>Job visible on public bulletin board</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-12</strong></td>
+                  <td>Role Validation (RBAC)</td>
+                  <td>Student accesses job board</td>
+                  <td>"+ Post Job" hidden; direct POST returns HTTP 403 Forbidden</td>
+                  <td>Button hidden; API returned 403 Forbidden</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-13</strong></td>
+                  <td>Job Referral Update</td>
+                  <td>Author edits salary to "&#8377;9 - 12 LPA"</td>
+                  <td>Record updated in MySQL; bulletin board reflects changes</td>
+                  <td>MySQL record updated; status 200 OK</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-14</strong></td>
+                  <td>Job Referral Deletion</td>
+                  <td>Author deletes authored post</td>
+                  <td>Record removed from MySQL; deleted from DOM feed</td>
+                  <td>HTTP 200; card removed cleanly</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-16</strong></td>
+                  <td>Pledge &amp; Persistence</td>
+                  <td>Pledge &#8377;50,000 to AI Lab Fund</td>
+                  <td>Atomic commit: inserts pledge &amp; increments raised total</td>
+                  <td>Raised total updated to &#8377;700,000; committed</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-17</strong></td>
+                  <td>In-App Notifications</td>
+                  <td>User clicks unread alert item</td>
+                  <td>Marks notification as read in MySQL via PUT request</td>
+                  <td>Notification unread indicator cleared</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TC-18</strong></td>
+                  <td>Session Logout</td>
+                  <td>User clicks Sign Out in navbar</td>
+                  <td>Clears active session token; reverts UI to guest portal state</td>
+                  <td>Session cleared; redirected to guest view</td>
+                  <td><span class="badge-pass">PASS</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 18: LIVE WORKING RESULTS & DASHBOARD
+           ==================================================================== -->
+      <section class="slide" id="slide-18" data-slide="18">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Live Working Results &amp; Portal Modules</h2>
+            <div class="slide-subtitle">Empirical Execution of Live Portals Under Real Seed Database Scenarios</div>
+          </div>
+          <span class="slide-section-tag">Live System Results</span>
+        </div>
+        <div class="slide-body">
+          <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:0.65rem; margin-bottom:0.65rem;">
+            <div class="metric-tile">
+              <div class="metric-num">5</div>
+              <div class="metric-label">Verified Alumni</div>
+            </div>
+            <div class="metric-tile">
+              <div class="metric-num">5</div>
+              <div class="metric-label">Active Students</div>
+            </div>
+            <div class="metric-tile">
+              <div class="metric-num">6</div>
+              <div class="metric-label">Job Referrals</div>
+            </div>
+            <div class="metric-tile">
+              <div class="metric-num">5</div>
+              <div class="metric-label">Mentorship Sessions</div>
+            </div>
+            <div class="metric-tile">
+              <div class="metric-num" style="color:var(--color-secondary);">&#8377;2,430,000</div>
+              <div class="metric-label">Total Endowment Pledged</div>
+            </div>
+          </div>
+
+          <div class="card-grid-2" style="flex:1;">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Verified Directory &amp; Mentorship Hub</h3>
+                <span class="badge-pass">Live Status</span>
+              </div>
+              <div class="card-content">
+                <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:6px; padding:0.65rem; margin-bottom:0.4rem;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong>Shiela Soundararajan</strong>
+                    <span class="badge-pass">Available for Mentorship</span>
+                  </div>
+                  <div style="font-size:0.75rem; color:var(--text-subtle); margin-top:0.2rem;">
+                    Senior AI Engineer &bull; Tata Consultancy Services (TCS) &bull; Batch 2024
+                  </div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:6px; padding:0.65rem;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong>Arun Kumar</strong>
+                    <span class="badge-pass">Available for Mentorship</span>
+                  </div>
+                  <div style="font-size:0.75rem; color:var(--text-subtle); margin-top:0.2rem;">
+                    Software Development Engineer II &bull; Amazon AWS &bull; Batch 2023
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Job Board &amp; Endowment Pledges</h3>
+                <span class="badge-pass">Live Status</span>
+              </div>
+              <div class="card-content">
+                <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:6px; padding:0.65rem; margin-bottom:0.4rem;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong>Associate AI Engineer (Campus Referral)</strong>
+                    <span class="badge-tag">&#8377;7.5 - 10 LPA</span>
+                  </div>
+                  <div style="font-size:0.75rem; color:var(--text-subtle); margin-top:0.2rem;">
+                    TCS Innovation Labs &bull; Skills: Python, PyTorch, SQL &bull; Posted by Shiela S.
+                  </div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:6px; padding:0.65rem;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong>AI &amp; Autonomous Robotics Center of Excellence</strong>
+                    <span style="font-weight:700; color:var(--color-primary);">&#8377;650,000 / &#8377;1,500,000</span>
+                  </div>
+                  <div class="pres-progress-bar-bg" style="width:100%; height:6px; margin-top:0.35rem;">
+                    <div class="pres-progress-fill" style="width:43.3%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 19: FUTURE ENHANCEMENTS & SCALABILITY
+           ==================================================================== -->
+      <section class="slide" id="slide-19" data-slide="19">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Future Enhancements &amp; System Scalability</h2>
+            <div class="slide-subtitle">Prospective Architectural Expansions for Enterprise-Scale Deployment</div>
+          </div>
+          <span class="slide-section-tag">Future Roadmap</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-3">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Payment Gateway Integration</h3>
+                <span class="badge-tag">Finance</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Online Monetary Donations:</strong></p>
+                <p>Integrate institutional payment gateways (Razorpay / UPI / Stripe) to collect verified online donations alongside current formal pledges.</p>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Automated Communications</h3>
+                <span class="badge-tag">Notifications</span>
+              </div>
+              <div class="card-content">
+                <p><strong>SMTP Email &amp; SMS Alerts:</strong></p>
+                <p>Implement JavaMail API and SMS gateway integration to send instant calendar invites (.ics) for accepted mentorship sessions.</p>
+              </div>
+            </div>
+
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>In-Browser Video Mentorship</h3>
+                <span class="badge-tag">WebRTC</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Peer-to-Peer Video Calls:</strong></p>
+                <p>Embed native WebRTC video channels directly within the portal for remote mock interviews and technical portfolio reviews.</p>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>AI Mentor Recommendation</h3>
+                <span class="badge-tag">AI/ML</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Semantic Resume Matching:</strong></p>
+                <p>Vector embedding models matching student resumes with alumni expertise to automatically recommend the most relevant mentors.</p>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Cross-Platform Mobile App</h3>
+                <span class="badge-tag">Mobile</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Progressive Web App (PWA):</strong></p>
+                <p>Package the lightweight frontend into a PWA with push notification support for real-time mobile updates on iOS and Android.</p>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Cloud Elastic Scaling</h3>
+                <span class="badge-tag">Cloud / DevOps</span>
+              </div>
+              <div class="card-content">
+                <p><strong>Containerized Deployment:</strong></p>
+                <p>Docker containerization with AWS Elastic Container Service (ECS) and Amazon RDS MySQL for university-wide multi-campus scaling.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-callout" style="background:#fefce8; border-color:#fde047;">
+            <strong>Academic Note:</strong> The above features represent potential future directions beyond the verified zero-framework core architecture implemented for the current project viva.
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 20: CONCLUSION & VIVA Q&A
+           ==================================================================== -->
+      <section class="slide" id="slide-20" data-slide="20">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <h2>Conclusion &amp; Viva Defense Q&amp;A</h2>
+            <div class="slide-subtitle">Summary of Achievements, Academic Learnings, and Defense Session</div>
+          </div>
+          <span class="slide-section-tag">Project Conclusion</span>
+        </div>
+        <div class="slide-body">
+          <div class="card-grid-2">
+            <div class="academic-card highlight">
+              <div class="card-header">
+                <h3>Project Outcomes &amp; Impact</h3>
+                <span class="badge-pass">Fulfilled</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Centralized Academic Hub:</strong> Successfully eliminated data fragmentation, providing a single source of truth for students, alumni, and administrators.</li>
+                  <li><strong>Rigorous Verification:</strong> 100% prevention of fraudulent accounts through institutional graduation verification.</li>
+                  <li><strong>Zero-Framework Mastery:</strong> Proved that high-performance, robust enterprise web portals can be engineered purely on Java SE, JDBC, and Vanilla Web standards without dependency bloat.</li>
+                  <li><strong>Empirical Success:</strong> 18 out of 18 acceptance test cases passed with zero critical defects.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="academic-card secondary-border">
+              <div class="card-header">
+                <h3>Key Engineering Learnings</h3>
+                <span class="badge-tag">Competencies</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Full-Stack Architecture:</strong> Clean separation across Presentation, Controller, Service, DAO, and Storage layers.</li>
+                  <li><strong>Socket &amp; HTTP Protocol Handling:</strong> Low-level mastery of HTTP verbs, CORS headers, thread pooling, and MIME dispatching.</li>
+                  <li><strong>Relational 3NF Modeling:</strong> Designing constraint-rich relational schemas and executing secure parameterized JDBC queries.</li>
+                  <li><strong>Security Engineering:</strong> Cryptographic password salting, hashing, and defense against SQL injection.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cover-main-hero" style="padding:1rem; margin-top:0.5rem;">
+            <h1 style="font-size:1.85rem; margin-bottom:0.25rem;">Thank You!</h1>
+            <p class="hero-sub" style="font-size:1rem; font-weight:700;">Final Viva Defense &ndash; Questions &amp; Answers</p>
+            <div style="font-size:0.8rem; color:var(--text-subtle); margin-top:0.35rem;">
+              Kiruthi Imalini (44731144) &bull; Yamba Murthy (44731137) &bull; Dept. of CSE (AI), SIST
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Prev / Counter / Next / Keyboard Hints) -->
+    <footer class="pres-bottom-bar">
+      <div class="pres-progress-container">
+        <div class="pres-progress-bar-bg">
+          <div class="pres-progress-fill" id="progressFill"></div>
+        </div>
+        <span class="slide-counter-badge" id="slideCounter">Slide 1 / 20</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button class="btn-nav" id="prevBtn" title="Previous Slide (Arrow Left)">
+          &larr; Prev
+        </button>
+        <button class="btn-nav primary" id="nextBtn" title="Next Slide (Arrow Right or Space)">
+          Next &rarr;
+        </button>
+      </div>
+
+      <div class="keyboard-hints">
+        <span>Controls:</span>
+        <span class="kbd-key">&larr;</span>
+        <span class="kbd-key">&rarr;</span>
+        <span class="kbd-key">Space</span>
+        <span class="kbd-key">Home</span>
+        <span class="kbd-key">End</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Vanilla ES6+ Presentation Navigation Controller -->
+  <script>
+    (function () {
+      "use strict";
+
+      const TOTAL_SLIDES = 20;
+      let currentSlide = 1;
+
+      // DOM Elements
+      const slides = document.querySelectorAll(".slide");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const slideCounter = document.getElementById("slideCounter");
+      const progressFill = document.getElementById("progressFill");
+
+      function updateSlideView(targetSlide) {
+        // Enforce strict boundaries (1 to TOTAL_SLIDES)
+        if (targetSlide < 1) targetSlide = 1;
+        if (targetSlide > TOTAL_SLIDES) targetSlide = TOTAL_SLIDES;
+
+        currentSlide = targetSlide;
+
+        // Toggle active class on slide elements
+        slides.forEach((slide) => {
+          const slideNum = parseInt(slide.getAttribute("data-slide"), 10);
+          if (slideNum === currentSlide) {
+            slide.classList.add("active");
+          } else {
+            slide.classList.remove("active");
+          }
+        });
+
+        // Update live counter badge
+        if (slideCounter) {
+          slideCounter.textContent = `Slide ${currentSlide} / ${TOTAL_SLIDES}`;
+        }
+
+        // Update visual progress bar fill
+        if (progressFill) {
+          const percent = (currentSlide / TOTAL_SLIDES) * 100;
+          progressFill.style.width = `${percent}%`;
+        }
+
+        // Update button states
+        if (prevBtn) {
+          prevBtn.disabled = (currentSlide === 1);
+        }
+        if (nextBtn) {
+          nextBtn.disabled = (currentSlide === TOTAL_SLIDES);
+        }
+      }
+
+      function nextSlide() {
+        if (currentSlide < TOTAL_SLIDES) {
+          updateSlideView(currentSlide + 1);
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 1) {
+          updateSlideView(currentSlide - 1);
+        }
+      }
+
+      function firstSlide() {
+        updateSlideView(1);
+      }
+
+      function lastSlide() {
+        updateSlideView(TOTAL_SLIDES);
+      }
+
+      // Event Listeners for On-Screen Buttons
+      if (prevBtn) {
+        prevBtn.addEventListener("click", prevSlide);
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", nextSlide);
+      }
+
+      // Keyboard Controls (Strict Requirements)
+      window.addEventListener("keydown", function (e) {
+        // Ignore key events if focused on input or textarea (if any)
+        if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)) {
+          return;
+        }
+
+        switch (e.key) {
+          case "ArrowLeft":
+            e.preventDefault();
+            prevSlide();
+            break;
+          case "ArrowRight":
+          case " ":
+            e.preventDefault();
+            nextSlide();
+            break;
+          case "Home":
+            e.preventDefault();
+            firstSlide();
+            break;
+          case "End":
+            e.preventDefault();
+            lastSlide();
+            break;
+        }
+      });
+
+      // Initialize on load
+      updateSlideView(1);
+    })();
+  </script>
+</body>
+</html>
