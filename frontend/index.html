@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Alumni Network System | SIST CSE AI</title>
+    <meta name="description" content="Official Smart Alumni Network and Mentorship Engagement Community Portal for Engineering Colleges.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top College Header Bar -->
+    <header class="top-bar">
+        <div class="container top-bar-content">
+            <div class="college-info">
+                <span class="badge badge-gold">NAAC A++ ACCREDITED</span>
+                <span class="institution-name">Sathyabama Institute of Science and Technology</span>
+                <span class="dept-tag">Dept. of Computer Science & Engineering (AI)</span>
+            </div>
+            <div class="quick-demo-bar" id="demoSwitcherBar">
+                <span class="demo-label">Demo Quick-Switch:</span>
+                <button class="btn btn-xs btn-outline" id="demoStudentBtn" onclick="quickLogin('student')">Student (Kiruthi)</button>
+                <button class="btn btn-xs btn-outline" id="demoAlumniBtn" onclick="quickLogin('alumni')">Alumni (Shiela - TCS)</button>
+                <button class="btn btn-xs btn-outline" id="demoAdminBtn" onclick="quickLogin('admin')">Admin</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" id="mainNavbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo" onclick="switchTab('dashboard')">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">Smart Alumni</span>
+                    <span class="brand-subtitle">Network Portal</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item active" data-tab="dashboard">
+                    <a href="#dashboard" onclick="switchTab('dashboard')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item" data-tab="directory">
+                    <a href="#directory" onclick="switchTab('directory')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        Alumni Directory
+                    </a>
+                </li>
+                <li class="nav-item" data-tab="mentorship">
+                    <a href="#mentorship" onclick="switchTab('mentorship')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Mentorship Hub
+                    </a>
+                </li>
+                <li class="nav-item" data-tab="jobs">
+                    <a href="#jobs" onclick="switchTab('jobs')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        Job Bulletin
+                    </a>
+                </li>
+                <li class="nav-item" data-tab="endowment">
+                    <a href="#endowment" onclick="switchTab('endowment')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Endowment Pledges
+                    </a>
+                </li>
+                <li class="nav-item" data-tab="notifications">
+                    <a href="#notifications" onclick="switchTab('notifications')">
+                        <div class="icon-badge-wrapper">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            <span class="badge-dot" id="notifDot" style="display:none;"></span>
+                        </div>
+                        Alerts
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Auth Controls Area -->
+            <div class="nav-auth" id="navAuthArea">
+                <!-- If logged out -->
+                <div id="loggedOutControls" class="auth-buttons">
+                    <button class="btn btn-outline" onclick="openModal('loginModal')">Sign In</button>
+                    <button class="btn btn-primary" onclick="openModal('registerModal')">Register</button>
+                </div>
+
+                <!-- If logged in -->
+                <div id="loggedInControls" class="user-session" style="display:none;">
+                    <div class="user-pill" onclick="openModal('profileModal')">
+                        <div class="user-avatar" id="navAvatar">U</div>
+                        <div class="user-meta">
+                            <span class="user-name" id="navUserName">Loading...</span>
+                            <span class="badge badge-role" id="navUserRole">Student</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger" onclick="handleLogout()" title="Sign Out">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dynamic Application Container -->
+    <main class="main-content container">
+
+        <!-- ==================================================== -->
+        <!-- TAB 1: DASHBOARD VIEW                                -->
+        <!-- ==================================================== -->
+        <section id="viewDashboard" class="view-section active">
+            <!-- Hero Banner -->
+            <div class="hero-banner">
+                <div class="hero-text">
+                    <div class="hero-badge">CSE AI ALUMNI NETWORK &bullet; CONNECT &bullet; MENTOR &bullet; GROW</div>
+                    <h1 class="hero-title">Empowering the Next Generation of Engineers</h1>
+                    <p class="hero-desc">
+                        Connect with verified industry alumni, book 1-on-1 career mentorship sessions, explore exclusive campus job referrals, and pledge support for departmental innovation.
+                    </p>
+                    <div class="hero-actions" id="heroActionButtons">
+                        <button class="btn btn-primary" onclick="switchTab('directory')">Browse Alumni Directory</button>
+                        <button class="btn btn-secondary" onclick="switchTab('mentorship')">Schedule Mentorship</button>
+                        <button class="btn btn-gold" onclick="switchTab('endowment')">Endowment Projects</button>
+                    </div>
+                </div>
+                <div class="hero-graphics">
+                    <div class="metric-chip">
+                        <span class="chip-num">100%</span>
+                        <span class="chip-label">Verified Alumni</span>
+                    </div>
+                    <div class="metric-chip chip-floating">
+                        <span class="chip-num">Top Tier</span>
+                        <span class="chip-label">TCS &bullet; Amazon &bullet; Microsoft</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Metric Counters -->
+            <div class="metrics-grid" id="statsGrid">
+                <div class="metric-card">
+                    <div class="metric-icon icon-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-value" id="statAlumniCount">-</span>
+                        <span class="metric-title">Verified Alumni</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon icon-emerald">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-value" id="statStudentsCount">-</span>
+                        <span class="metric-title">Registered Students</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon icon-purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-value" id="statJobsCount">-</span>
+                        <span class="metric-title">Active Job Referrals</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon icon-amber">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-value" id="statEndowmentAmount">₹0</span>
+                        <span class="metric-title">Total Funds Pledged</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role-Specific Action Banner -->
+            <div class="role-action-panel" id="roleActionPanel">
+                <div class="panel-header">
+                    <h3 id="rolePanelTitle">Welcome to Your Portal</h3>
+                    <span class="badge" id="roleBadge">Guest Access</span>
+                </div>
+                <div class="panel-body" id="rolePanelBody">
+                    <p>Sign in with your student or alumni credentials to unlock personalized features.</p>
+                </div>
+            </div>
+
+            <!-- Featured Highlights Grid -->
+            <div class="two-column-grid">
+                <!-- Featured Mentors -->
+                <div class="card">
+                    <div class="card-header flex-between">
+                        <h3>Featured Alumni Mentors</h3>
+                        <a href="#directory" class="text-link" onclick="switchTab('directory')">View All &rarr;</a>
+                    </div>
+                    <div class="card-body" id="featuredMentorsContainer">
+                        <div class="loading-spinner">Loading mentors...</div>
+                    </div>
+                </div>
+
+                <!-- Latest Job Postings -->
+                <div class="card">
+                    <div class="card-header flex-between">
+                        <h3>Recent Referral Opportunities</h3>
+                        <a href="#jobs" class="text-link" onclick="switchTab('jobs')">View All &rarr;</a>
+                    </div>
+                    <div class="card-body" id="featuredJobsContainer">
+                        <div class="loading-spinner">Loading jobs...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================== -->
+        <!-- TAB 2: ALUMNI DIRECTORY (FR-02)                     -->
+        <!-- ==================================================== -->
+        <section id="viewDirectory" class="view-section">
+            <div class="section-header flex-between">
+                <div>
+                    <h2>Verified Alumni Directory</h2>
+                    <p class="section-subtitle">Search and connect with verified graduates across batches, companies, and disciplines.</p>
+                </div>
+                <div class="header-badges">
+                    <span class="badge badge-primary"><span id="dirCount">0</span> Alumni Listed</span>
+                </div>
+            </div>
+
+            <!-- Search & Filters Toolbar -->
+            <div class="filter-card">
+                <div class="filter-grid">
+                    <div class="filter-field search-box">
+                        <label for="dirSearchInput">Search Name / Company / Role</label>
+                        <input type="text" id="dirSearchInput" placeholder="e.g. Shiela, TCS, Machine Learning..." oninput="handleDirectoryFilter()">
+                    </div>
+                    <div class="filter-field">
+                        <label for="dirDeptSelect">Department</label>
+                        <select id="dirDeptSelect" onchange="handleDirectoryFilter()">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label for="dirBatchSelect">Graduation Batch</label>
+                        <select id="dirBatchSelect" onchange="handleDirectoryFilter()">
+                            <option value="">All Batches</option>
+                            <option value="2024">Batch of 2024</option>
+                            <option value="2023">Batch of 2023</option>
+                            <option value="2022">Batch of 2022</option>
+                            <option value="2021">Batch of 2021</option>
+                            <option value="2020">Batch of 2020</option>
+                        </select>
+                    </div>
+                    <div class="filter-field toggle-field">
+                        <label>&nbsp;</label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="dirMentorOnly" onchange="handleDirectoryFilter()">
+                            <span>Available Mentors Only</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni Cards Grid -->
+            <div class="alumni-grid" id="alumniCardsGrid">
+                <div class="loading-spinner">Loading directory...</div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================== -->
+        <!-- TAB 3: MENTORSHIP SCHEDULING HUB (FR-03)             -->
+        <!-- ==================================================== -->
+        <section id="viewMentorship" class="view-section">
+            <div class="section-header flex-between">
+                <div>
+                    <h2>Mentorship Engagement Hub</h2>
+                    <p class="section-subtitle">Schedule 1-on-1 career roadmap guidance, resume critiques, and interview preparation sessions.</p>
+                </div>
+                <div id="mentorshipHeaderActions">
+                    <button class="btn btn-primary" onclick="switchTab('directory')">+ Book a Session</button>
+                </div>
+            </div>
+
+            <!-- Mentorship Subtabs: Active Sessions / Mentor Action Queue -->
+            <div class="mentorship-content">
+                <div class="card">
+                    <div class="card-header flex-between">
+                        <h3 id="mentorshipTableTitle">Your Mentorship Sessions</h3>
+                        <span class="badge badge-primary" id="mentorshipCountBadge">0 Sessions</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="data-table" id="mentorshipTable">
+                                <thead>
+                                    <tr>
+                                        <th>Participant</th>
+                                        <th>Topic</th>
+                                        <th>Preferred Date & Time</th>
+                                        <th>Status</th>
+                                        <th>Feedback / Notes</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mentorshipTableBody">
+                                    <tr><td colspan="6" class="text-center">Loading mentorship sessions...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================== -->
+        <!-- TAB 4: JOB REFERRAL BULLETIN BOARD (FR-04)          -->
+        <!-- ==================================================== -->
+        <section id="viewJobs" class="view-section">
+            <div class="section-header flex-between">
+                <div>
+                    <h2>Job Referral Bulletin Board</h2>
+                    <p class="section-subtitle">Exclusive campus referrals, internships, and full-time opportunities posted by alumni.</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="btnPostJobTrigger" onclick="openPostJobModal()" style="display:none;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Post New Job Referral
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jobs Filter Toolbar -->
+            <div class="filter-card">
+                <div class="filter-grid">
+                    <div class="filter-field search-box">
+                        <label for="jobSearchInput">Search Job Title / Company / Skills</label>
+                        <input type="text" id="jobSearchInput" placeholder="e.g. Python, AWS, SDE..." oninput="handleJobsFilter()">
+                    </div>
+                    <div class="filter-field">
+                        <label for="jobLocationInput">Location</label>
+                        <input type="text" id="jobLocationInput" placeholder="e.g. Chennai, Bengaluru, Hybrid" oninput="handleJobsFilter()">
+                    </div>
+                    <div class="filter-field" id="myJobsToggleContainer" style="display:none;">
+                        <label>&nbsp;</label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="myJobsOnly" onchange="handleJobsFilter()">
+                            <span>My Job Postings Only</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jobs List Container -->
+            <div class="jobs-list" id="jobsContainer">
+                <div class="loading-spinner">Loading job opportunities...</div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================== -->
+        <!-- TAB 5: DEPARTMENT ENDOWMENT & PLEDGES (FR-05)        -->
+        <!-- ==================================================== -->
+        <section id="viewEndowment" class="view-section">
+            <div class="section-header flex-between">
+                <div>
+                    <h2>Department Endowment & Funding Pledges</h2>
+                    <p class="section-subtitle">Support cutting-edge laboratory infrastructure, AI compute clusters, and student scholarships.</p>
+                </div>
+                <div>
+                    <span class="badge badge-gold" id="endowmentAggregateHeader">Total Raised: ₹0</span>
+                </div>
+            </div>
+
+            <!-- Endowment Projects Grid -->
+            <div class="projects-grid" id="endowmentProjectsContainer">
+                <div class="loading-spinner">Loading endowment projects...</div>
+            </div>
+
+            <!-- User Pledges History Table -->
+            <div class="card mt-4" id="myPledgesCard" style="display:none;">
+                <div class="card-header flex-between">
+                    <h3>Your Giving History & Commitments</h3>
+                    <span class="badge badge-emerald" id="myPledgesBadge">0 Pledges</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Campaign</th>
+                                    <th>Amount Pledged</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Donor Note</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myPledgesTableBody">
+                                <tr><td colspan="5" class="text-center">No pledges recorded yet.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================== -->
+        <!-- TAB 6: NOTIFICATIONS & FEED                         -->
+        <!-- ==================================================== -->
+        <section id="viewNotifications" class="view-section">
+            <div class="section-header flex-between">
+                <div>
+                    <h2>Notifications & System Alerts</h2>
+                    <p class="section-subtitle">Real-time alerts regarding mentorship updates, referral postings, and pledge acknowledgments.</p>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-outline" onclick="loadNotifications()">Refresh Alerts</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="notification-list" id="notificationListContainer">
+                        <div class="loading-spinner">Loading notifications...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4 class="footer-title">Smart Alumni Network System</h4>
+                <p class="footer-desc">An institution-verified full-stack academic platform for enduring alumni engagement, mentorship, and career advancement.</p>
+                <div class="tech-stack-pills">
+                    <span class="tech-pill">HTML5</span>
+                    <span class="tech-pill">CSS3</span>
+                    <span class="tech-pill">Vanilla ES6+</span>
+                    <span class="tech-pill">Java HttpServer</span>
+                    <span class="tech-pill">JDBC</span>
+                    <span class="tech-pill">MySQL 8.0</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5 class="footer-heading">Department Information</h5>
+                <p>Department of Computer Science and Engineering (AI)</p>
+                <p>Sathyabama Institute of Science and Technology (SIST)</p>
+                <p>Jeppiaar Nagar, Rajiv Gandhi Salai, Chennai – 600 119</p>
+            </div>
+            <div class="footer-col">
+                <h5 class="footer-heading">Quick Evaluation Credentials</h5>
+                <p><strong>Admin:</strong> admin@gmail.com / admin123</p>
+                <p><strong>Alumni:</strong> shiela@gmail.com / alumni123</p>
+                <p><strong>Student:</strong> kiruthi@gmail.com / student123</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <span>&copy; 2026 Sathyabama Institute of Science and Technology. All Rights Reserved.</span>
+                <span>Capstone Full-Stack Project Evaluation &bullet; Windows Local Deployment</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==================================================== -->
+    <!-- MODAL 1: LOGIN MODAL                                 -->
+    <!-- ==================================================== -->
+    <div class="modal-backdrop" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Sign In to Smart Alumni Portal</h3>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+                    <div class="form-group">
+                        <label for="loginRole">Account Role</label>
+                        <select id="loginRole" class="form-control" required>
+                            <option value="Student">Student</option>
+                            <option value="Alumni">Alumni</option>
+                            <option value="Admin">Administrator</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginEmail">Institutional Email</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="e.g. kiruthi@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">Sign In</button>
+                    </div>
+                    <p class="modal-footer-text">
+                        Don't have an account? <a href="#" onclick="switchModal('loginModal', 'registerModal')">Register Here</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- MODAL 2: REGISTRATION MODAL (FR-01 VERIFIED ALUMNI)   -->
+    <!-- ==================================================== -->
+    <div class="modal-backdrop" id="registerModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3>User Registration</h3>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" onsubmit="handleRegisterSubmit(event)">
+                    <!-- Role Switcher -->
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="regRole">Select Your Role</label>
+                            <select id="regRole" class="form-control" onchange="toggleRegisterFields()" required>
+                                <option value="Student">Student (Current Undergraduate)</option>
+                                <option value="Alumni">Alumni (Verified Graduate)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Common Fields -->
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="regName">Full Name</label>
+                            <input type="text" id="regName" class="form-control" placeholder="e.g. Kiruthika R" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="regEmail">Email Address</label>
+                            <input type="email" id="regEmail" class="form-control" placeholder="e.g. kiruthi@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="regPassword">Password (min 6 characters)</label>
+                            <input type="password" id="regPassword" class="form-control" placeholder="Create a secure password" required minlength="6">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="regPhone">Phone Number (10 digits)</label>
+                            <input type="tel" id="regPhone" class="form-control" placeholder="e.g. 9876543210" pattern="\d{10}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="regDept">Academic Department</label>
+                            <select id="regDept" class="form-control" required></select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="regRegisterNo" id="labelRegisterNo">Register / Roll Number</label>
+                            <input type="text" id="regRegisterNo" class="form-control" placeholder="e.g. 44731006" required>
+                        </div>
+                    </div>
+
+                    <!-- Student Specific Fields -->
+                    <div id="studentFields">
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="regCurrentYear">Current Year of Study</label>
+                                <select id="regCurrentYear" class="form-control">
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3" selected>3rd Year</option>
+                                    <option value="4">4th Year (Final Year)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="regBio">Short Academic Bio / Interests</label>
+                                <input type="text" id="regBio" class="form-control" placeholder="e.g. Deep Learning & Web Architectures">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alumni Specific Fields (With Institutional Verification) -->
+                    <div id="alumniFields" style="display:none;">
+                        <div class="verification-notice" id="alumniVerifyBanner">
+                            <div class="notice-icon">&check;</div>
+                            <div class="notice-body">
+                                <strong>Institutional Verification (FR-01) Required:</strong>
+                                <span>Alumni registration is verified against college graduation records (register number, batch, department). Try demo un-registered register number <code>44731006</code> (Karthik S, Batch 2024).</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="regBatchYear">Graduation Batch Year</label>
+                                <select id="regBatchYear" class="form-control">
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="regCompany">Current Employer / Company</label>
+                                <input type="text" id="regCompany" class="form-control" placeholder="e.g. Tata Consultancy Services, Amazon">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="regDesignation">Professional Designation</label>
+                                <input type="text" id="regDesignation" class="form-control" placeholder="e.g. Senior Software Engineer">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="regLocation">Work Location</label>
+                                <input type="text" id="regLocation" class="form-control" placeholder="e.g. Chennai / Bengaluru / Hybrid">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="regLinkedin">LinkedIn Profile URL</label>
+                                <input type="url" id="regLinkedin" class="form-control" placeholder="https://linkedin.com/in/...">
+                            </div>
+                            <div class="form-group col-6">
+                                <label>&nbsp;</label>
+                                <label class="checkbox-label mt-2">
+                                    <input type="checkbox" id="regMentorAvailable" checked>
+                                    <span>Available to Mentor Students</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-primary btn-block" id="regSubmitBtn">Complete Registration</button>
+                    </div>
+                    <p class="modal-footer-text">
+                        Already registered? <a href="#" onclick="switchModal('registerModal', 'loginModal')">Sign In</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- MODAL 3: BOOK MENTORSHIP SESSION (FR-03)             -->
+    <!-- ==================================================== -->
+    <div class="modal-backdrop" id="bookMentorshipModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Schedule Mentorship Session</h3>
+                <button class="close-btn" onclick="closeModal('bookMentorshipModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookMentorshipForm" onsubmit="handleBookMentorshipSubmit(event)">
+                    <input type="hidden" id="bookAlumniId">
+
+                    <div class="mentor-summary-box">
+                        <div class="mentor-badge-name" id="bookAlumniName">Selected Mentor</div>
+                        <div class="mentor-badge-company" id="bookAlumniCompany">Company &bullet; Designation</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookTopic">Session Topic / Objective</label>
+                        <input type="text" id="bookTopic" class="form-control" placeholder="e.g. Resume Review for AI Roles, SDE Interview Prep" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="bookDate">Preferred Date</label>
+                            <input type="date" id="bookDate" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="bookTime">Preferred Time Slot</label>
+                            <select id="bookTime" class="form-control" required>
+                                <option value="05:00 PM - 05:45 PM">05:00 PM - 05:45 PM</option>
+                                <option value="06:00 PM - 06:45 PM">06:00 PM - 06:45 PM</option>
+                                <option value="07:00 PM - 07:45 PM">07:00 PM - 07:45 PM</option>
+                                <option value="08:00 PM - 08:45 PM">08:00 PM - 08:45 PM</option>
+                                <option value="Weekend Morning (10:00 AM)">Weekend Morning (10:00 AM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookMessage">Message to Mentor</label>
+                        <textarea id="bookMessage" class="form-control" rows="3" placeholder="Briefly describe what guidance you are seeking, your current year, and any specific questions..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Submit Mentorship Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- MODAL 4: POST / EDIT JOB REFERRAL (FR-04)            -->
+    <!-- ==================================================== -->
+    <div class="modal-backdrop" id="jobModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 id="jobModalTitle">Post Job Referral</h3>
+                <button class="close-btn" onclick="closeModal('jobModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="jobForm" onsubmit="handleJobSubmit(event)">
+                    <input type="hidden" id="editJobId">
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="jobTitle">Job Title / Role</label>
+                            <input type="text" id="jobTitle" class="form-control" placeholder="e.g. Associate AI Engineer" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="jobCompany">Company Name</label>
+                            <input type="text" id="jobCompany" class="form-control" placeholder="e.g. Tata Consultancy Services" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="jobLocation">Location / Work Mode</label>
+                            <input type="text" id="jobLocation" class="form-control" placeholder="e.g. Chennai / Hybrid" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="jobType">Employment Type</label>
+                            <select id="jobType" class="form-control">
+                                <option value="Full-Time">Full-Time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Contract">Contract</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="jobSalary">Salary Range / Compensation</label>
+                            <input type="text" id="jobSalary" class="form-control" placeholder="e.g. ₹8 - 12 LPA or ₹30k/month">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="jobLink">Application Link / Portal</label>
+                            <input type="url" id="jobLink" class="form-control" placeholder="https://company.com/careers/..." required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobSkills">Required Skills (comma-separated)</label>
+                        <input type="text" id="jobSkills" class="form-control" placeholder="e.g. Python, PyTorch, SQL, REST APIs" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobDesc">Job Description & Referral Notes</label>
+                        <textarea id="jobDesc" class="form-control" rows="4" placeholder="Detail the responsibilities, eligibility criteria, and instructions for juniors applying..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" id="jobSubmitBtn">Publish Job Opportunity</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- MODAL 5: RECORD PLEDGE (FR-05)                       -->
+    <!-- ==================================================== -->
+    <div class="modal-backdrop" id="pledgeModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Endowment Pledge Commitment</h3>
+                <button class="close-btn" onclick="closeModal('pledgeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="pledgeForm" onsubmit="handlePledgeSubmit(event)">
+                    <input type="hidden" id="pledgeProjectId">
+
+                    <div class="pledge-target-summary">
+                        <h4 id="pledgeProjectTitle">AI & Autonomous Robotics Lab Fund</h4>
+                        <div class="pledge-progress-meter">
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar-fill" id="pledgeModalProgress" style="width: 40%;"></div>
+                            </div>
+                            <span class="progress-label" id="pledgeModalProgressLabel">₹650,000 / ₹1,500,000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pledgeAmount">Pledge Contribution Amount (₹ INR)</label>
+                        <input type="number" id="pledgeAmount" class="form-control" min="500" step="500" placeholder="e.g. 25000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pledgeNotes">Donor Note / Dedication (Optional)</label>
+                        <input type="text" id="pledgeNotes" class="form-control" placeholder="e.g. Dedicated to CSE AI juniors for GPU clusters">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-gold btn-block">Confirm Financial Pledge</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- MODAL 6: USER PROFILE MODAL                          -->
+    <!-- ==================================================== -->
+    <div class="modal-backdrop" id="profileModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>User Profile Details</h3>
+                <button class="close-btn" onclick="closeModal('profileModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-card-content" id="profileDetailsView">
+                    <!-- Loaded dynamically via script.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast Notification Stack -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Core Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
