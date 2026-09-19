@@ -253,6 +253,11 @@
                         <label for="dirDeptSelect">Department</label>
                         <select id="dirDeptSelect" onchange="handleDirectoryFilter()">
                             <option value="">All Departments</option>
+                            <option value="1">Computer Science &amp; Engineering (Artificial Intelligence) (CSE-AI)</option>
+                            <option value="2">Computer Science &amp; Engineering (CSE)</option>
+                            <option value="3">Information Technology (IT)</option>
+                            <option value="4">Electronics &amp; Communication Engineering (ECE)</option>
+                            <option value="5">Mechanical Engineering (MECH)</option>
                         </select>
                     </div>
                     <div class="filter-field">
@@ -569,7 +574,14 @@
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label for="regDept">Academic Department</label>
-                            <select id="regDept" class="form-control" required></select>
+                            <select id="regDept" class="form-control" required>
+                                <option value="" disabled selected>-- Select Academic Department --</option>
+                                <option value="1">Computer Science &amp; Engineering (Artificial Intelligence) (CSE-AI)</option>
+                                <option value="2">Computer Science &amp; Engineering (CSE)</option>
+                                <option value="3">Information Technology (IT)</option>
+                                <option value="4">Electronics &amp; Communication Engineering (ECE)</option>
+                                <option value="5">Mechanical Engineering (MECH)</option>
+                            </select>
                         </div>
                         <div class="form-group col-6">
                             <label for="regRegisterNo" id="labelRegisterNo">Register / Roll Number</label>

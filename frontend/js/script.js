@@ -1,3 +1,26 @@
+// ==========================================================
+// API CONFIGURATION (Multi-Port & Live Server Compatibility)
+// ==========================================================
+function getApiUrl(endpoint) {
+    if (!endpoint) return '';
+    if (endpoint.startsWith('http://') || endpoint.startsWith('https://')) return endpoint;
+    if (!endpoint.startsWith('/')) endpoint = '/' + endpoint;
+    // If running on port 8080 (served by Java backend), use relative path
+    if (window.location.protocol === 'http:' && window.location.port === '8080') {
+        return endpoint;
+    }
+    // If opened via Live Server (:5500), file://, or other port, route to backend on :8080
+    return 'http://localhost:8080' + endpoint;
+}
+
+const DEFAULT_DEPARTMENTS = [
+    { deptId: 1, deptCode: 'CSE-AI', deptName: 'Computer Science & Engineering (Artificial Intelligence)' },
+    { deptId: 2, deptCode: 'CSE', deptName: 'Computer Science & Engineering' },
+    { deptId: 3, deptCode: 'IT', deptName: 'Information Technology' },
+    { deptId: 4, deptCode: 'ECE', deptName: 'Electronics & Communication Engineering' },
+    { deptId: 5, deptCode: 'MECH', deptName: 'Mechanical Engineering' }
+];
+
 /**
  * SMART ALUMNI NETWORK SYSTEM - CLIENT SCRIPT
  * Zero-framework Vanilla ES6+ JavaScript SPA Controller
@@ -185,7 +208,7 @@ async function handleLoginSubmit(e) {
     btn.textContent = 'Authenticating...';
 
     try {
-        const res = await fetch('/api/auth/login', {
+        const res = await fetch(getApiUrl('/api/auth/login'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, role })
@@ -229,7 +252,7 @@ async function quickLogin(type) {
     }
 
     try {
-        const res = await fetch('/api/auth/login', {
+        const res = await fetch(getApiUrl('/api/auth/login'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password: pass, role })
@@ -313,7 +336,7 @@ async function handleRegisterSubmit(e) {
     btn.textContent = 'Registering & Verifying...';
 
     try {
-        const res = await fetch('/api/auth/register', {
+        const res = await fetch(getApiUrl('/api/auth/register'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -343,7 +366,7 @@ async function handleRegisterSubmit(e) {
 // ==========================================================
 async function loadDashboardStats() {
     try {
-        const res = await fetch('/api/stats');
+        const res = await fetch(getApiUrl('/api/stats'));
         if (res.ok) {
             const stats = await res.json();
             document.getElementById('statAlumniCount').textContent = stats.totalAlumni || 0;
@@ -360,24 +383,35 @@ async function loadDashboardStats() {
 // DEPARTMENTS
 // ==========================================================
 async function loadDepartments() {
+    const dirSelect = document.getElementById('dirDeptSelect');
+    const regSelect = document.getElementById('regDept');
+
+    function populateSelects(depts) {
+        if (!depts || depts.length === 0) depts = DEFAULT_DEPARTMENTS;
+        let optionsHtml = '';
+        depts.forEach(d => {
+            optionsHtml += `<option value="${d.deptId}">${d.deptName} (${d.deptCode})</option>`;
+        });
+        if (dirSelect) dirSelect.innerHTML = '<option value="">All Departments</option>' + optionsHtml;
+        if (regSelect) regSelect.innerHTML = '<option value="" disabled selected>-- Select Academic Department --</option>' + optionsHtml;
+    }
+
+    // Immediately pre-populate with default departments so dropdown is NEVER blank
+    if (regSelect && regSelect.options.length <= 1) {
+        populateSelects(DEFAULT_DEPARTMENTS);
+    }
+
     try {
-        const res = await fetch('/api/departments');
+        const res = await fetch(getApiUrl('/api/departments'));
         if (res.ok) {
             state.departments = await res.json();
-
-            const dirSelect = document.getElementById('dirDeptSelect');
-            const regSelect = document.getElementById('regDept');
-
-            let optionsHtml = '';
-            state.departments.forEach(d => {
-                optionsHtml += `<option value="${d.deptId}">${d.deptName} (${d.deptCode})</option>`;
-            });
-
-            if (dirSelect) dirSelect.innerHTML = '<option value="">All Departments</option>' + optionsHtml;
-            if (regSelect) regSelect.innerHTML = optionsHtml;
+            populateSelects(state.departments);
+        } else {
+            populateSelects(DEFAULT_DEPARTMENTS);
         }
     } catch (e) {
-        console.error('Error loading departments:', e);
+        console.warn('Backend /api/departments unreachable, fallback to default departments:', e);
+        populateSelects(DEFAULT_DEPARTMENTS);
     }
 }
 
@@ -397,7 +431,7 @@ async function loadDirectory() {
     if (mentorOnly) url += `&mentorOnly=true`;
 
     try {
-        const res = await fetch(url);
+        const res = await fetch(getApiUrl(url));
         if (res.ok) {
             state.alumniList = await res.json();
             document.getElementById('dirCount').textContent = state.alumniList.length;
@@ -521,7 +555,7 @@ async function handleBookMentorshipSubmit(e) {
     const message = document.getElementById('bookMessage').value.trim();
 
     try {
-        const res = await fetch('/api/mentorship', {
+        const res = await fetch(getApiUrl('/api/mentorship'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -551,7 +585,7 @@ async function loadMentorshipSessions() {
     const badge = document.getElementById('mentorshipCountBadge');
 
     try {
-        const res = await fetch('/api/mentorship', {
+        const res = await fetch(getApiUrl('/api/mentorship'), {
             headers: {
                 'X-User-Id': state.currentUser.userId,
                 'X-User-Role': state.currentUser.role
@@ -610,7 +644,7 @@ async function respondMentorship(sessionId, status) {
     if (notes === null) return;
 
     try {
-        const res = await fetch(`/api/mentorship/${sessionId}/status`, {
+        const res = await fetch(getApiUrl(`/api/mentorship/${sessionId}/status`), {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -653,7 +687,7 @@ async function loadJobs() {
             headers['X-User-Role'] = state.currentUser.role;
         }
 
-        const res = await fetch(url, { headers });
+        const res = await fetch(getApiUrl(url), { headers });
         if (res.ok) {
             state.jobsList = await res.json();
             if (state.jobsList.length === 0) {
@@ -776,7 +810,7 @@ async function handleJobSubmit(e) {
     const method = isEdit ? 'PUT' : 'POST';
 
     try {
-        const res = await fetch(url, {
+        const res = await fetch(getApiUrl(url), {
             method: method,
             headers: {
                 'Content-Type': 'application/json',
@@ -804,7 +838,7 @@ async function deleteJob(jobId) {
     if (!confirm('Are you sure you want to permanently delete this job posting?')) return;
 
     try {
-        const res = await fetch(`/api/jobs/${jobId}`, {
+        const res = await fetch(getApiUrl(`/api/jobs/${jobId}`), {
             method: 'DELETE',
             headers: {
                 'X-User-Id': state.currentUser.userId,
@@ -831,7 +865,7 @@ async function deleteJob(jobId) {
 async function loadEndowments() {
     const container = document.getElementById('endowmentProjectsContainer');
     try {
-        const res = await fetch('/api/endowments');
+        const res = await fetch(getApiUrl('/api/endowments'));
         if (res.ok) {
             state.endowmentList = await res.json();
             let totalPledged = 0;
@@ -900,7 +934,7 @@ async function handlePledgeSubmit(e) {
     const notes = document.getElementById('pledgeNotes').value.trim();
 
     try {
-        const res = await fetch('/api/pledges', {
+        const res = await fetch(getApiUrl('/api/pledges'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -931,7 +965,7 @@ async function loadUserPledges() {
     const badge = document.getElementById('myPledgesBadge');
 
     try {
-        const res = await fetch('/api/pledges/my', {
+        const res = await fetch(getApiUrl('/api/pledges/my'), {
             headers: {
                 'X-User-Id': state.currentUser.userId,
                 'X-User-Role': state.currentUser.role
@@ -970,7 +1004,7 @@ async function loadNotifications() {
     const dot = document.getElementById('notifDot');
 
     try {
-        const res = await fetch('/api/notifications', {
+        const res = await fetch(getApiUrl('/api/notifications'), {
             headers: {
                 'X-User-Id': state.currentUser.userId,
                 'X-User-Role': state.currentUser.role
@@ -1008,7 +1042,7 @@ async function loadNotifications() {
 async function markNotifRead(notifId) {
     if (!state.currentUser) return;
     try {
-        await fetch(`/api/notifications/${notifId}/read`, {
+        await fetch(getApiUrl(`/api/notifications/${notifId}/read`), {
             method: 'PUT',
             headers: {
                 'X-User-Id': state.currentUser.userId,
